@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5354869069059513569}
   - component: {fileID: 8156957845383554871}
   - component: {fileID: 3313737519273730109}
+  - component: {fileID: 8077229960321698761}
   m_Layer: 0
   m_Name: Bone Snake
   m_TagString: Untagged
@@ -97,3 +98,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8077229960321698761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5298452558149794357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8b448112592cf47a9e41eca2027999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0
+  boneTarget: {fileID: 0}
+  Player: {fileID: 0}

@@ -16,7 +16,7 @@ public class Control : MonoBehaviour
             {
                 delta.x = 0f;
             }
-            transform.position = new Vector3(curPosition.x + delta.x * Sensitivity, 0.5f, 0);
+            transform.position = new Vector3(curPosition.x + delta.x * Sensitivity, 0.5f, transform.position.z);
             curPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
         _previousMousePosition = Input.mousePosition;
