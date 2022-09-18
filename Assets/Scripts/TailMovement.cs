@@ -7,11 +7,11 @@ public class TailMovement : MonoBehaviour
     public GameObject boneTargetObject;
     public Player Player;
 
-    private void Start()
+    private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         MoveSpeed = Player.GetComponent<Move>().MoveSpeed;
-        boneTargetObject = Player.BoneSnake[Player.BoneSnake.Count - 2];
+        boneTargetObject = Player.BoneSnake[Player.BoneSnake.Count - 1];
     }
     void Update()
     {

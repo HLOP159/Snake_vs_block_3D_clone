@@ -111,5 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 0
-  boneTarget: {fileID: 0}
+  boneTarget: {x: 0, y: 0, z: 0}
+  boneTargetObject: {fileID: 0}
   Player: {fileID: 0}
