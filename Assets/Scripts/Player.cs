@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public List<GameObject> BoneSnake = new List<GameObject>();
     public float Zoffset;
     public GameObject BonePrefab;
+    public float MoveSpeed;
 
     private void Start()
     {
@@ -23,5 +24,10 @@ public class Player : MonoBehaviour
         Destroy(BoneSnake[BoneSnake.Count - 1]);
         BoneSnake.RemoveAt(BoneSnake.Count - 1);
         
+    }
+    void Update()
+    {
+        Vector3 motion = new Vector3(0, 0, MoveSpeed);
+        transform.position += motion * Time.deltaTime;
     }
 }

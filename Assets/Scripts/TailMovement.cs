@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TailMovement : MonoBehaviour
 {
-    public float MoveSpeed;
+    private float MoveSpeed;
     public Vector3 boneTarget;
     public GameObject boneTargetObject;
     public Player Player;
@@ -10,7 +10,7 @@ public class TailMovement : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        MoveSpeed = Player.GetComponent<Move>().MoveSpeed;
+        MoveSpeed = Player.MoveSpeed;
         boneTargetObject = Player.BoneSnake[Player.BoneSnake.Count - 1];
     }
     void Update()
@@ -18,6 +18,6 @@ public class TailMovement : MonoBehaviour
         boneTarget = boneTargetObject.transform.position;
         boneTarget.z -= Player.Zoffset;
         transform.LookAt(boneTarget);
-        transform.position = Vector3.Lerp(transform.position, boneTarget, MoveSpeed);
+        transform.position = Vector3.Lerp(transform.position, boneTarget, MoveSpeed *Time.deltaTime);
     }
 }

@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public float HPFood = 3;
+    public int HPFood = 10 ;
+    private void Start()
+    {
+        HPFood = Random.Range(1, HPFood + 1);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
