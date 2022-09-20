@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8b448112592cf47a9e41eca2027999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
+  MoveSpeed: 20
   boneTarget: {x: 0, y: 0, z: 0}
   boneTargetObject: {fileID: 0}
   Player: {fileID: 0}

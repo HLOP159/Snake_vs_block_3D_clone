@@ -939,6 +939,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: f61bffc3d5644674e89789e1d07cf682, type: 2}
   - {fileID: 2100000, guid: 70ebefd8fc3524c4b9d456578ac19756, type: 2}
   CubeMaterial: {fileID: 0}
+  Delay: 0.1
 --- !u!1 &7061049131102703292
 GameObject:
   m_ObjectHideFlags: 0

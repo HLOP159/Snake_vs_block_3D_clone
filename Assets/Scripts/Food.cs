@@ -3,6 +3,7 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     public int HPFood = 10 ;
+    public float Delay;
     private void Start()
     {
         HPFood = Random.Range(1, HPFood + 1);

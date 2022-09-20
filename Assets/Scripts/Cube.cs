@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Cube : MonoBehaviour
 {
     public int Damage;
     public List<Material> CubeMaterials = new List<Material>();
     public Renderer CubeMaterial;
+    public float Delay;
 
     public void Start()
     {
@@ -37,14 +39,18 @@ public class Cube : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<Player>().OffMoveSpeed();
+
             for (int i = 0; i < Damage; i++)
             {
                 other.GetComponent<Player>().DestroyBone();
+                yield return new WaitForSeconds(Delay);
             }
+            other.GetComponent<Player>().ReturnMoveSpeed();
             Destroy(gameObject);
         }
     }
