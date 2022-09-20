@@ -37,12 +37,10 @@ public class Player : MonoBehaviour
     public void OffMoveSpeed()
     {
         MoveSpeed = 0;
-        Debug.Log("1");
     }
     public void ReturnMoveSpeed()
     {
         MoveSpeed = _moveSpeed;
-        Debug.Log("2");
     }
      
 }
