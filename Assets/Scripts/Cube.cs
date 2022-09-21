@@ -15,27 +15,27 @@ public class Cube : MonoBehaviour
         CubeMaterial = GetComponent<Renderer>();
         if (Damage <= 5)
         {
-            CubeMaterial.material = CubeMaterials[0];
+            CubeMaterial.sharedMaterial = CubeMaterials[0];
         }
         if (Damage <= 10 & Damage > 5)
         {
-            CubeMaterial.material = CubeMaterials[1];
+            CubeMaterial.sharedMaterial = CubeMaterials[1];
         }
         if (Damage <= 15 & Damage > 10)
         {
-            CubeMaterial.material = CubeMaterials[2];
+            CubeMaterial.sharedMaterial = CubeMaterials[2];
         }
         if (Damage <= 20 & Damage > 15)
         {
-            CubeMaterial.material = CubeMaterials[3];
+            CubeMaterial.sharedMaterial = CubeMaterials[3];
         }
         if (Damage <= 25 & Damage > 20)
         {
-            CubeMaterial.material = CubeMaterials[4];
+            CubeMaterial.sharedMaterial = CubeMaterials[4];
         }
         if (Damage <= 30 & Damage > 25)
         {
-            CubeMaterial.material = CubeMaterials[5];
+            CubeMaterial.sharedMaterial = CubeMaterials[5];
         }
     }
 
