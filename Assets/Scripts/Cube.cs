@@ -1,17 +1,56 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class Cube : MonoBehaviour
 {
-    public float Damage = 3;
+    public int Damage;
+    public List<Material> CubeMaterials = new List<Material>();
+    public Renderer CubeMaterial;
+    public float Delay;
 
-    private void OnTriggerEnter(Collider other)
+    public void Start()
+    {
+        Damage = Random.Range(1, Damage + 1);
+        CubeMaterial = GetComponent<Renderer>();
+        if (Damage <= 5)
+        {
+            CubeMaterial.material = CubeMaterials[0];
+        }
+        if (Damage <= 10 & Damage > 5)
+        {
+            CubeMaterial.material = CubeMaterials[1];
+        }
+        if (Damage <= 15 & Damage > 10)
+        {
+            CubeMaterial.material = CubeMaterials[2];
+        }
+        if (Damage <= 20 & Damage > 15)
+        {
+            CubeMaterial.material = CubeMaterials[3];
+        }
+        if (Damage <= 25 & Damage > 20)
+        {
+            CubeMaterial.material = CubeMaterials[4];
+        }
+        if (Damage <= 30 & Damage > 25)
+        {
+            CubeMaterial.material = CubeMaterials[5];
+        }
+    }
+
+    public IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<Player>().OffMoveSpeed();
+
             for (int i = 0; i < Damage; i++)
             {
                 other.GetComponent<Player>().DestroyBone();
+                yield return new WaitForSeconds(Delay);
             }
+            other.GetComponent<Player>().ReturnMoveSpeed();
             Destroy(gameObject);
         }
     }
