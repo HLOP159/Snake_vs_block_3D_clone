@@ -425,6 +425,7 @@ MonoBehaviour:
   BonePrefab: {fileID: 5298452558149794357, guid: f7265eaad4dcab84f9c79f2aa70be7b2, type: 3}
   MoveSpeed: 10
   Text: {fileID: 561325927}
+  Game: {fileID: 1481927771}
 --- !u!54 &591403644
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -697,6 +698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1481927770}
+  - component: {fileID: 1481927771}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -721,3 +723,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1481927771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481927769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d9760c88b0f85448d29419c786cbc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Control: {fileID: 591403641}
