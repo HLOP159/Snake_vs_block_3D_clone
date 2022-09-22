@@ -8,6 +8,8 @@ public class Cube : MonoBehaviour
     public List<Material> CubeMaterials = new List<Material>();
     public Renderer CubeMaterial;
     public float Delay;
+    public int HPCube;
+    private Player player;
 
     public void Start()
     {
@@ -37,20 +39,23 @@ public class Cube : MonoBehaviour
         {
             CubeMaterial.sharedMaterial = CubeMaterials[5];
         }
+        HPCube = Damage;
     }
 
     public IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Player>().OffMoveSpeed();
+            player = other.GetComponent<Player>();
+            player.OffMoveSpeed();
 
             for (int i = 0; i < Damage; i++)
             {
-                other.GetComponent<Player>().DestroyBone();
+                player.DestroyBone();
                 yield return new WaitForSeconds(Delay);
+                HPCube--;
             }
-            other.GetComponent<Player>().ReturnMoveSpeed();
+            player.ReturnMoveSpeed();
             Destroy(gameObject);
         }
     }

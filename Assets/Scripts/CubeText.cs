@@ -7,6 +7,6 @@ public class CubeText : MonoBehaviour
 
     private void Update()
     {
-        Text.text = Cube.Damage.ToString();
+        Text.text = Cube.HPCube.ToString();
     }
 }

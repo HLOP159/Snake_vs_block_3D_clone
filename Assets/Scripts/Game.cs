@@ -1,8 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
     public Control Control;
+    private const string LevelIndexKey = "LevelIndex";
+
+
+    public int LevelIndex
+    {
+        get => PlayerPrefs.GetInt(LevelIndexKey, 0);
+        private set
+        {
+            PlayerPrefs.SetInt(LevelIndexKey, value);
+            PlayerPrefs.Save();
+        }
+    }
     public enum State
     {
         Playing,
@@ -16,7 +29,7 @@ public class Game : MonoBehaviour
 
         CurrentState = State.Loss;
         Control.enabled = false;
-        Debug.Log("Game Over");
+        ReloadLevel();
 
 
     }
@@ -26,8 +39,15 @@ public class Game : MonoBehaviour
 
         CurrentState = State.Win;
         Control.enabled = false;
-        Debug.Log("You Win!");
+        LevelIndex++;
+        ReloadLevel();
     }
     public State CurrentState { get; private set; }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     
 }
