@@ -40,13 +40,18 @@ public class Game : MonoBehaviour
         CurrentState = State.Win;
         Control.enabled = false;
         LevelIndex++;
-        ReloadLevel();
+        PlayerWin();
     }
     public State CurrentState { get; private set; }
 
     public void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void PlayerWin()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     
