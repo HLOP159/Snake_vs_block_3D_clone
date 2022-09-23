@@ -822,7 +822,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 674
+  m_VersionIndex: 677
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -940,6 +940,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 70ebefd8fc3524c4b9d456578ac19756, type: 2}
   CubeMaterial: {fileID: 0}
   Delay: 0.03
+  HPCube: 0
 --- !u!1 &7061049131102703292
 GameObject:
   m_ObjectHideFlags: 0

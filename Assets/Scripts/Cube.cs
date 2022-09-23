@@ -10,6 +10,7 @@ public class Cube : MonoBehaviour
     public float Delay;
     public int HPCube;
     private Player player;
+    private bool _triggerOn = false;
 
     public void Start()
     {
@@ -42,21 +43,31 @@ public class Cube : MonoBehaviour
         HPCube = Damage;
     }
 
-    public IEnumerator OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             player = other.GetComponent<Player>();
             player.OffMoveSpeed();
-
-            for (int i = 0; i < Damage; i++)
+            _triggerOn = true;
+            do
             {
                 player.DestroyBone();
                 yield return new WaitForSeconds(Delay);
                 HPCube--;
+                if (HPCube <= 0)
+                {
+                    player.AddBone();
+                    player.ReturnMoveSpeed();
+                    Destroy(gameObject);
+                }
             }
-            player.ReturnMoveSpeed();
-            Destroy(gameObject);
+            while (_triggerOn == true);
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        _triggerOn = false;
+        player.ReturnMoveSpeed();
     }
 }
