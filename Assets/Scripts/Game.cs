@@ -5,6 +5,8 @@ public class Game : MonoBehaviour
 {
     public Control Control;
     private const string LevelIndexKey = "LevelIndex";
+    public float SoundDelay;
+    public AudioClips AudioClips;
 
 
     public int LevelIndex
@@ -30,8 +32,6 @@ public class Game : MonoBehaviour
         CurrentState = State.Loss;
         Control.enabled = false;
         ReloadLevel();
-
-
     }
     public void OnPlayerReachedFinish()
     {
@@ -40,7 +40,8 @@ public class Game : MonoBehaviour
         CurrentState = State.Win;
         Control.enabled = false;
         LevelIndex++;
-        PlayerWin();
+        AudioClips.FinishSound();
+        Invoke("PlayerWin", SoundDelay);
     }
     public State CurrentState { get; private set; }
 

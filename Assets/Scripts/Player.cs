@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private float _moveSpeed;
     public TextMesh Text;
     public Game Game;
+    public AudioClips AudioClips;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            AudioClips.DestroyBoneSound();
             Destroy(BoneSnake[BoneSnake.Count - 1]);
             BoneSnake.RemoveAt(BoneSnake.Count - 1);
         }
